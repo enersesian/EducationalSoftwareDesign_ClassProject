@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneManagerSingleton : MonoBehaviour
 {
-    public static SceneManager sceneManagerSingleton;
-    // Start is called before the first frame update
+    public static SceneManagerSingleton sceneManagerSingleton;
+
     void Start()
     {
         if(sceneManagerSingleton == null)
@@ -21,8 +21,8 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    public void SetScene(string sceneName)
+    public static void SetScene(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

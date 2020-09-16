@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class CanvasUIFunctions : MonoBehaviour
@@ -35,10 +32,7 @@ public class CanvasUIFunctions : MonoBehaviour
             case "00TitleScene":
                 break;
             case "01IntroScene":
-                introText.text = "Welcome to Bubble Sort in 3D!\n\n" +
-                    "Learn computer science principles by interacting with 3D objects!";
-                introImage.SetActive(true);
-                backButton.SetActive(false);
+                InitializeIntro();
                 break;
             case "02TutorialScene":
                 break;
@@ -47,23 +41,33 @@ public class CanvasUIFunctions : MonoBehaviour
         }
     }
 
+    void InitializeIntro()
+    {
+        introText.horizontalAlignment = HorizontalAlignmentOptions.Center;
+        introText.text = "Welcome to Bubble Sort in 3D!\n\n" +
+            "Learn computer science principles by interacting with 3D objects!";
+        introImage.SetActive(true);
+        backButton.SetActive(false);
+    }
+
     public void IntroSequenceBack()
     {
-        introSequence = introSequence - 2;
-        IntroSequenceNext();
+        introSequence--;
+        SetIntroSequence();
     }
 
     public void IntroSequenceNext()
     {
         introSequence++;
+        SetIntroSequence();
+    }
+
+    void SetIntroSequence()
+    {
         switch (introSequence)
         {
             case 0:
-                introText.horizontalAlignment = HorizontalAlignmentOptions.Center;
-                introText.text = "Welcome to Bubble Sort in 3D!\n\n" +
-                    "Learn computer science principles by interacting with 3D objects!";
-                introImage.SetActive(true);
-                backButton.SetActive(false);
+                InitializeIntro();
                 break;
             case 1:
                 introImage.SetActive(false);

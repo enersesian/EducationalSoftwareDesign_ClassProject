@@ -45,7 +45,7 @@ public class CanvasUIFunctions : MonoBehaviour
     {
         introText.horizontalAlignment = HorizontalAlignmentOptions.Center;
         introText.text = "Welcome to Bubble Sort in 3D!\n\n" +
-            "Learn computer science principles by interacting with 3D objects!";
+            "Learn computer science principles by interacting with 3D objects!\n\n\n\n";
         introImage.SetActive(true);
         backButton.SetActive(false);
     }
